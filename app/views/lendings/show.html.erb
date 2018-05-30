@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @lending.book %>
+</p>
+
+<p>
+  <strong>Checkouted on:</strong>
+  <%= @lending.checkouted_on %>
+</p>
+
+<p>
+  <strong>Return scheduled on:</strong>
+  <%= @lending.return_scheduled_on %>
+</p>
+
+<p>
+  <strong>Returned on:</strong>
+  <%= @lending.returned_on %>
+</p>
+
+<%= link_to 'Edit', edit_lending_path(@lending) %> |
+<%= link_to 'Back', [@lending.book, :lendings] %>

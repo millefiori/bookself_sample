@@ -1,0 +1,37 @@
+<%= form_with(model: [@book, lending], local: true) do |form| %>
+  <% if lending.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lending.errors.count, "error") %> prohibited this lending from being saved:</h2>
+
+      <ul>
+      <% lending.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :book_id %>
+    <%= form.text_field :book_id, id: :lending_book_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkouted_on %>
+    <%= form.date_select :checkouted_on, id: :lending_checkouted_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :return_scheduled_on %>
+    <%= form.date_select :return_scheduled_on, id: :lending_return_scheduled_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returned_on %>
+    <%= form.date_select :returned_on, id: :lending_returned_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

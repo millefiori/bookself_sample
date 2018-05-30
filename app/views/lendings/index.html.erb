@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lendings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Checkouted on</th>
+      <th>Return scheduled on</th>
+      <th>Returned on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lendings.each do |lending| %>
+      <tr>
+        <td><%= lending.book %></td>
+        <td><%= lending.checkouted_on %></td>
+        <td><%= lending.return_scheduled_on %></td>
+        <td><%= lending.returned_on %></td>
+        <td><%= link_to 'Show', lending %></td>
+        <td><%= link_to 'Edit', edit_lending_path(lending) %></td>
+        <td><%= link_to 'Destroy', lending, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lending', [:new, @book, :lending] %>
