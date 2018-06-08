@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    render json: @books, meta: { total_count: @books.count }
   end
 
   # GET /books/1
